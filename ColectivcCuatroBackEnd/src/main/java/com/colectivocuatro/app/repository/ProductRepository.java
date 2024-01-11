@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.colectivocuatro.app.entities.Product;
 
-public interface ProductRepository extends CrudRepository<Product, Long>{
+public interface ProductRepository extends CrudRepository<Product, Integer>{
 	
 }
 

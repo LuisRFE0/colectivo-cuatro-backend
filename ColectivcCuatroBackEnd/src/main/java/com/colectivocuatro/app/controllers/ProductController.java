@@ -1,5 +1,7 @@
 package com.colectivocuatro.app.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,30 @@ public class ProductController {
 		log.info(product);
 		Product newProduct = productService.createProduct(product);
 		return newProduct;
+	}
+	
+	
+	@GetMapping("getProducts")
+	List<Product> getProducts(){
+			
+		List<Product> products = productService.getAllProducts();
+		return products;
+		
+	}
+	
+	@GetMapping("getProduct/{id}")
+	Product getProduct(@PathVariable("id") int id) {
+		Product product = productService.getProductById(id);
+		return product;
+		
+	}
+	
+	
+	@DeleteMapping("deleteProduct/{id}")
+	String deleteProduct(@PathVariable("id") int id) {
+		
+		productService.deleteProduct(id);
+		return "Producto eliminado correctamente";
 	}
 
 }
