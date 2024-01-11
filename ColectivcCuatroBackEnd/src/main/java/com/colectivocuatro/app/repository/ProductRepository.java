@@ -1,8 +1,8 @@
-package com.colectivocuatro.ColectivcCuatroBackEnd.repository;
+package com.colectivocuatro.app.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.colectivocuatro.ColectivcCuatroBackEnd.entities.Product;
+import com.colectivocuatro.app.entities.Product;
 
 public interface ProductRepository extends CrudRepository<Product, Long>{
 	

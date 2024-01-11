@@ -1,8 +1,8 @@
-package com.colectivocuatro.ColectivcCuatroBackEnd.service;
+package com.colectivocuatro.app.service;
 
 import java.util.List;
 
-import com.colectivocuatro.ColectivcCuatroBackEnd.entities.Product;
+import com.colectivocuatro.app.entities.Product;
 
 
 public interface ProductService {

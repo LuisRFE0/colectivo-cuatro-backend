@@ -1,4 +1,4 @@
-package com.colectivocuatro.ColectivcCuatroBackEnd.entities;
+package com.colectivocuatro.app.entities;
 
 import java.sql.Timestamp;
 
@@ -24,7 +24,7 @@ public class Product {
 	
 	@Column(name="nombre", nullable=false, length=100) private String name;
 	@Column(name="precio", nullable=false) private Double price;
-	@Column(name="descripcion", nullable=false, length=200) private String description;
+	@Column(name="descripcion", nullable=false, length=300) private String description;
 	@Column(name="stock", nullable=false) private int stock;
 	@Column(name="id_categoria", nullable=false) private int category;
 	@Column(name="url_imagen", nullable=false) private String urlImage;

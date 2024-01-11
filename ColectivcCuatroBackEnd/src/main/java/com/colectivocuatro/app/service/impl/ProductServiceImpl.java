@@ -1,13 +1,13 @@
-package com.colectivocuatro.ColectivoCuatroBackEnd.service.impl;
+package com.colectivocuatro.app.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.colectivocuatro.ColectivcCuatroBackEnd.entities.Product;
-import com.colectivocuatro.ColectivcCuatroBackEnd.repository.ProductRepository;
-import com.colectivocuatro.ColectivcCuatroBackEnd.service.ProductService;
+import com.colectivocuatro.app.repository.ProductRepository;
+import com.colectivocuatro.app.service.ProductService;
+import com.colectivocuatro.app.entities.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService {
