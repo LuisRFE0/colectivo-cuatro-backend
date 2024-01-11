@@ -20,11 +20,11 @@ import lombok.*;
 @Table(name="productos")
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY) private int id_producto;
 	
 	@Column(name="nombre", nullable=false, length=100) private String name;
 	@Column(name="precio", nullable=false) private Double price;
-	@Column(name="descripcion", nullable=false, length=300) private String description;
+	@Column(name="descripcion", nullable=false, length=400) private String description;
 	@Column(name="stock", nullable=false) private int stock;
 	@Column(name="id_categoria", nullable=false) private int category;
 	@Column(name="url_imagen", nullable=false) private String urlImage;
