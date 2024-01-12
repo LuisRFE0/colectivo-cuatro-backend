@@ -2,7 +2,6 @@ package com.colectivocuatro.app.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,14 +41,26 @@ public class UserController {
 		String password = body.get("password");
 
 		User user = userService.findByEmailAndPassword(email, password);
+		
+		
 		Map<String, User> response = new HashMap<>();
 		// Cambiar a booleano
+		
+		
 		if (user == null) {
 			response.put("message", user);
 			return response;
 
 		} else {
-			response.put("message", user);
+			
+			User userProtected = new User();
+			
+			userProtected.setId_clientes(user.getId_clientes());
+			userProtected.setEmail(user.getEmail());
+			userProtected.setName(user.getName());
+			userProtected.setId_rol(user.getId_rol());
+			
+			response.put("message", userProtected);
 			return response;
 		}
 
