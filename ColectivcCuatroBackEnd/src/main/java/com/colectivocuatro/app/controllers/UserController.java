@@ -1,15 +1,18 @@
 package com.colectivocuatro.app.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import com.colectivocuatro.app.entities.User;
 import com.colectivocuatro.app.service.UserService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("api/v1/users")
 public class UserController {
 
@@ -21,5 +24,44 @@ public class UserController {
 		User user = userService.getUserById(id);
 		return user;
 	}
+
+	@PostMapping("createUser")
+	User createUser(@RequestBody User user) {
+		User newUser = userService.createUser(user);
+		return newUser;
+	}
+
+	@PutMapping("update/{id}")
+	User updateUser(@RequestBody User user, @PathVariable("id") int id) {
+		User userUpdate = userService.updateUser(user, id);
+		return userUpdate;
+
+	}
+
+	@PostMapping("login")
+public	 Map<String, User> login(@RequestBody Map<String,String> body ) {
+		String email = body.get("email");
+		
+		User u = userService.getUserByEmail(email);
+		 Map<String, User> response = new HashMap<>();
+		 //Cambiar a booleano
+		if (u == null) {
+			  response.put("message", u);
+			  return response;
+	           
+		}else {
+			  response.put("message", u);
+	             return response;
+		}
+		
+//		return u.toString();
+
+	}
+
+//	User getEmail(String email) {
+//		User user = userService.getUserByEmail(email);
+//		return user;
+//
+//	}
 
 }

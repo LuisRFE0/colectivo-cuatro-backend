@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		User createUser = userRepository.save(user);
+		return createUser;
 	}
 
 	@Override
@@ -29,8 +29,29 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateUser(User user, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		User existingUser = getUserById(id);
+
+		existingUser.setName(user.getName());
+		existingUser.setLastName(user.getLastName());
+		existingUser.setAdress(user.getAdress());
+		existingUser.setPhone(user.getPhone());
+		return createUser(existingUser);
 	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		
+		Optional<User> user = userRepository.findByEmail(email);
+		
+		if (user.isPresent()) {
+			return user.get();
+		}else {
+			return null;
+		}
+		
+	}
+
+
 
 }

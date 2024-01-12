@@ -29,4 +29,5 @@ public class User {
 	@Column(name="password", nullable=false, length=500) private String password;
 	@Column(name="direccion", nullable=true, length=200) private String adress;
 	@Column(name="telefono", nullable=true, length=14) private String phone;
+	private int id_rol;
 }
