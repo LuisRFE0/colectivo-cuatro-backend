@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import com.colectivocuatro.app.entities.User;
 import com.colectivocuatro.app.service.UserService;
 
@@ -39,25 +37,22 @@ public class UserController {
 	}
 
 	@PostMapping("login")
-public	 Map<String, User> loginAndPassword(@RequestBody Map<String,String> body ) {
+	public Map<String, User> loginAndPassword(@RequestBody Map<String, String> body) {
 		String email = body.get("email");
 		String password = body.get("password");
-		
-		User user = userService.findByEmailAndPassword(email , password);
-		 Map<String, User> response = new HashMap<>();
-		 //Cambiar a booleano
+
+		User user = userService.findByEmailAndPassword(email, password);
+		Map<String, User> response = new HashMap<>();
+		// Cambiar a booleano
 		if (user == null) {
-			  response.put("message", user);
-			  return response;
-	           
-		}else {
-			  response.put("message", user);
-	             return response;
+			response.put("message", user);
+			return response;
+
+		} else {
+			response.put("message", user);
+			return response;
 		}
-		
-//		return u.toString();
 
 	}
-
 
 }
