@@ -8,5 +8,5 @@ public interface UserService {
 	User createUser(User user);
 	User getUserById (int id);
 	User updateUser (User user , int id);
-	User getUserByEmail(String email);
+	User findByEmailAndPassword(String email ,String password);
 }

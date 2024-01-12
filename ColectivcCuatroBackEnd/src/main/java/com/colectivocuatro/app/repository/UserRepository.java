@@ -8,6 +8,6 @@ import com.colectivocuatro.app.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Integer>{
 	
-	Optional<User> findByEmail(String email);
+	Optional<User> findByEmailAndPassword(String email,String password);
 
 }

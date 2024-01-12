@@ -39,18 +39,19 @@ public class UserController {
 	}
 
 	@PostMapping("login")
-public	 Map<String, User> login(@RequestBody Map<String,String> body ) {
+public	 Map<String, User> loginAndPassword(@RequestBody Map<String,String> body ) {
 		String email = body.get("email");
+		String password = body.get("password");
 		
-		User u = userService.getUserByEmail(email);
+		User user = userService.findByEmailAndPassword(email , password);
 		 Map<String, User> response = new HashMap<>();
 		 //Cambiar a booleano
-		if (u == null) {
-			  response.put("message", u);
+		if (user == null) {
+			  response.put("message", user);
 			  return response;
 	           
 		}else {
-			  response.put("message", u);
+			  response.put("message", user);
 	             return response;
 		}
 		
@@ -58,10 +59,5 @@ public	 Map<String, User> login(@RequestBody Map<String,String> body ) {
 
 	}
 
-//	User getEmail(String email) {
-//		User user = userService.getUserByEmail(email);
-//		return user;
-//
-//	}
 
 }
