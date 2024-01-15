@@ -17,14 +17,29 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user) {
-		User createUser = userRepository.save(user);
-		return createUser;
-	}
+		
+		try {
+			User createUser = userRepository.save(user);
+			return createUser;
+		} catch (Exception e) {
+			throw new IllegalStateException("Correo registrado anteriormente");
+		}
+			
+			
+		}
+		
+		
+	
 
 	@Override
 	public User getUserById(int id) {
 		Optional<User> user = userRepository.findById(id);
-		return user.get();
+		if (user.isPresent()) {
+			return user.get();
+		}else {
+			throw new IllegalStateException("El usuario no ha sido encontrado");
+		}
+	
 	}
 
 	@Override
@@ -50,6 +65,17 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		
+		Optional<User> user = userRepository.findByEmail(email);
+		if (user.isPresent()) {
+			 throw new IllegalStateException("El correo ya fue registrado");
+		}else {
+			return null;
+		}
 	}
 
 

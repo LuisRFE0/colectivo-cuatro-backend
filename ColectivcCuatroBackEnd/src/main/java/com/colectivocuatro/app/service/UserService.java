@@ -9,4 +9,5 @@ public interface UserService {
 	User getUserById (int id);
 	User updateUser (User user , int id);
 	User findByEmailAndPassword(String email ,String password);
+	User findByEmail(String email );
 }
