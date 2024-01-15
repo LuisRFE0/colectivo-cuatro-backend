@@ -42,7 +42,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product updateProduct(Product product, int id) {
-		// TODO Auto-generated method stub
+
+		Product existingProduct = getProductById(id);
+		
 		return null;
 	}
 
