@@ -50,5 +50,11 @@ public class ProductController {
 		productService.deleteProduct(id);
 		return "Producto eliminado correctamente";
 	}
+	
+	@PutMapping("update/{id}")
+	Product updateProduct(@RequestBody Product product,@PathVariable("id") int id) {
+		Product newProduct = productService.updateProduct(product, id);
+		return newProduct;
+	}
 
 }

@@ -35,7 +35,8 @@ public class ProductServiceImpl implements ProductService {
 		if (product.isPresent()) {
 			return product.get();
 		} else {
-			return new Product();
+			throw new IllegalStateException("El producto no ha sido encontrado");
+
 		}
 
 	}
@@ -44,8 +45,13 @@ public class ProductServiceImpl implements ProductService {
 	public Product updateProduct(Product product, int id) {
 
 		Product existingProduct = getProductById(id);
-		
-		return null;
+		existingProduct.setName(product.getName());
+		existingProduct.setPrice(product.getPrice());
+		existingProduct.setDescription(product.getDescription());
+		existingProduct.setStock(product.getStock());
+		existingProduct.setCategory(product.getCategory());
+		existingProduct.setUrlImage(product.getUrlImage());
+		return createProduct(existingProduct);
 	}
 
 	@Override

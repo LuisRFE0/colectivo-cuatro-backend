@@ -42,6 +42,11 @@ public class UserServiceImpl implements UserService {
 	
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public User updateUser(User user, int id) {
 		
@@ -53,6 +58,15 @@ public class UserServiceImpl implements UserService {
 		existingUser.setPhone(user.getPhone());
 		return createUser(existingUser);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public User findByEmailAndPassword(String email , String password) {
