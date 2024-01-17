@@ -1,6 +1,5 @@
 package com.colectivocuatro.app.entities;
 
-import java.security.Timestamp;
 import java.sql.Date;
 
 import jakarta.persistence.*;

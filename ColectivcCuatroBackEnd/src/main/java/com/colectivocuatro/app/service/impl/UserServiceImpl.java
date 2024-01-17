@@ -11,7 +11,6 @@ import com.colectivocuatro.app.repository.UserRepository;
 import com.colectivocuatro.app.service.UserService;
 
 @Service
-
 public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userRepository;
