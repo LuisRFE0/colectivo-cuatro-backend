@@ -3,6 +3,7 @@ package com.colectivocuatro.app.service.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.colectivocuatro.app.entities.User;
@@ -14,15 +15,18 @@ import com.colectivocuatro.app.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Override
 	public User createUser(User user) {
 		
 		try {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			User createUser = userRepository.save(user);
 			return createUser;
 		} catch (Exception e) {
-			throw new IllegalStateException("Correo registrado anteriormente");
+			throw new IllegalStateException(e);
 		}
 			
 			
@@ -86,10 +90,11 @@ public class UserServiceImpl implements UserService {
 		
 		Optional<User> user = userRepository.findByEmail(email);
 		if (user.isPresent()) {
-			 throw new IllegalStateException("El correo ya fue registrado");
+			return user.get();
 		}else {
-			return null;
+			throw new IllegalStateException("User does not exist with email " + email);
 		}
+		
 	}
 
 
