@@ -19,5 +19,6 @@ public class Order {
 	
 	@Column(name="id_cliente", nullable=false) private int idClient;
 	@Column(name="fecha_compra", nullable=false) private Date orderDate;
+	@Column(name="total") private double total;
 
 }

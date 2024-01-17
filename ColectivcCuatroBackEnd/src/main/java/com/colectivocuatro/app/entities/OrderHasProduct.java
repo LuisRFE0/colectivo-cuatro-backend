@@ -14,6 +14,7 @@ import lombok.*;
 @Table(name="ordenes_has_productos")
 public class OrderHasProduct {
 	@Id
+	private int id;
 	private int id_orden;
 	private int id_producto;
 	private String cantidad;

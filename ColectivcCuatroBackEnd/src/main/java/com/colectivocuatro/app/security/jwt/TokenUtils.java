@@ -22,7 +22,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class TokenUtils {
 	private final static String ACCESS_TOKEN_SECRET = "elpoliciadeperritoschauchauestaenparangaricutirimicuaroEFSDCSDCSDSDSSE";
-	private final static long ACCESS_TOKEN_VALID_SECONDS = 300_000L;
+	private final static long ACCESS_TOKEN_VALID_SECONDS = 86_400_000L;
 	
 	// STEP 7.3 Creación del token JWT
 	public static String createToken(

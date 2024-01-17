@@ -53,7 +53,7 @@ public class WebSecurityConfig {
 				.authorizeHttpRequests( authorize -> authorize
 						.requestMatchers( "/", "/index.html", "/assets/**" ).permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/v1/users/createUser",  "/api/v1/roles").permitAll()
-						.requestMatchers("/api/v1/users/**").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.GET,"api/v1/products/getProducts").permitAll()
 						.requestMatchers("/api/v2/users/**").hasAnyRole("ADMIN", "CUSTOMER")
 						.anyRequest().authenticated()
 						)
@@ -93,7 +93,7 @@ public class WebSecurityConfig {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins( List.of("http://127.0.0.1:5500", "https://ch30-spring.onrender.com") );
+		configuration.setAllowedOrigins( List.of("http://127.0.0.1:5501", "https://ch30-spring.onrender.com") );
 		configuration.setAllowedMethods( List.of("GET", "POST", "PUT", "DELETE") );
 		configuration.setAllowedHeaders( List.of("Authorization","Content-Type") );
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

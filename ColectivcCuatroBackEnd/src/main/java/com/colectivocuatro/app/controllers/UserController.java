@@ -1,7 +1,5 @@
 package com.colectivocuatro.app.controllers;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.colectivocuatro.app.entities.User;
@@ -24,9 +22,8 @@ public class UserController {
 	@PostMapping("createUser")
 	User createUser(@RequestBody User user) {
 		User newUser = userService.createUser(user);
-	
-	
-			return newUser;
+
+		return newUser;
 	}
 
 	@PutMapping("update/{id}")
@@ -34,6 +31,11 @@ public class UserController {
 		User userUpdate = userService.updateUser(user, id);
 		return userUpdate;
 
+	}
+
+	@GetMapping("getUser")
+	User gerUserForLogin(@RequestParam(name = "email") String email) {
+		return userService.findByEmail(email);
 	}
 
 //	@PostMapping("login")
@@ -66,10 +68,5 @@ public class UserController {
 //		}
 //
 //	}
-	
-	
-
-
-	
 
 }
