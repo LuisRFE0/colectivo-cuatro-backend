@@ -21,5 +21,6 @@ public class OrderHasProduct {
 	private int id_orden;
 	private int id_producto;
 	private String cantidad;
+	private double subtotal;
 	
 }
