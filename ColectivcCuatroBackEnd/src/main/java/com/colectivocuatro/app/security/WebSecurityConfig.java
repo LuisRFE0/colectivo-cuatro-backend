@@ -52,7 +52,8 @@ public class WebSecurityConfig {
 				.cors( Customizer.withDefaults() )
 				.authorizeHttpRequests( authorize -> authorize
 						.requestMatchers( "/", "/index.html", "/assets/**" ).permitAll()
-						.requestMatchers(HttpMethod.POST, "/api/v1/users/createUser",  "/api/v1/roles","api/v1/orders/createOrder","api/v1/ohp/createOhp").permitAll()
+						.requestMatchers(HttpMethod.POST, "/api/v1/users/createUser",  "/api/v1/roles","api/v1/orders/createOrder","api/v1/ohp/createOhp","/api/v1/products/createProduct").permitAll()
+						.requestMatchers(HttpMethod.PUT,"/api/v1/products/**").permitAll()
 						.requestMatchers(HttpMethod.GET,"api/v1/products/getProducts").permitAll()
 						.requestMatchers("/api/v2/users/**").hasAnyRole("ADMIN", "CUSTOMER")
 						.anyRequest().authenticated()
