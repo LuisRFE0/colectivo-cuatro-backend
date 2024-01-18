@@ -66,6 +66,7 @@ public class TokenUtils {
 					.getPayload();
 			
 			String email = claims.getSubject();
+			@SuppressWarnings("unchecked")
 			List< Map<String,String> > authoritiesList =  (List<Map<String, String>>) claims.get("authorities");
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			
