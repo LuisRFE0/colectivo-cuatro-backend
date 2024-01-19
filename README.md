@@ -1,7 +1,7 @@
 # 👚 **Colectivo Cuatro Ecommerce - Back-End**  👓 
 
 ## *Bienvenida* 👋
-Bienvenido a **Colectivo Cuatro** una plataforma online donde podrás comprar todos los productos de nuestra marca. 
+Bienvenid@ a **Colectivo Cuatro** una plataforma online donde podrás comprar todos los productos de nuestra marca. 
 En este proyecto encontrarás todo lo necesario para crear el Back-End de tu propia tienda virtual, gestionar tus pedidos  y ofrecer
 una experiencia de compra personalizada a tus clientes. 
 
@@ -15,7 +15,7 @@ Este proyecto fue desarrollado por:
 - Víctor Hernández   [LinkedIn Víctor](https://pages.github.com/](https://www.linkedin.com/in/victor-g-h-moysen/)https://www.linkedin.com/in/victor-g-h-moysen/).
 
 ## *Contenido* 💻
-En este repositorio encontraras todo lo relativo a la creación del Back-End para una ecommerce, desde la conexión a la base de datos, seguridad y creación de los controladores RESTful para crear tu propia API, las tecnologías utilizadas son:
+En este repositorio se encuentra todo lo relativo a la creación del Back-End para una ecommerce, desde la conexión a la base de datos, seguridad y creación de los controladores RESTful para crear tu propia API, las tecnologías utilizadas son:
 - Java
 - Gradle
 - Spring Boot
